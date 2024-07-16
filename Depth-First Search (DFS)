@@ -1,0 +1,47 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+void DFSUtil(int v, vector<bool>& visited, const vector<vector<int>>& adj) {
+    // Mark the current node as visited and print it
+    visited[v] = true;
+    cout << v << " ";
+
+    // Recur for all vertices adjacent to this vertex
+    for (int i : adj[v]) {
+        if (!visited[i]) {
+            DFSUtil(i, visited, adj);
+        }
+    }
+}
+
+void DFS(int V, const vector<vector<int>>& adj) {
+    // Mark all vertices as not visited
+    vector<bool> visited(V, false);
+
+    // Call the recursive helper function to print DFS traversal
+    // starting from all vertices one by one
+    for (int i = 0; i < V; ++i) {
+        if (!visited[i]) {
+            DFSUtil(i, visited, adj);
+        }
+    }
+}
+
+int main() {
+    int V = 5; // Number of vertices
+    vector<vector<int>> adj(V);
+
+    // Example graph
+    adj[0] = {1, 2};
+    adj[1] = {0, 3, 4};
+    adj[2] = {0};
+    adj[3] = {1};
+    adj[4] = {1};
+
+    cout << "Depth First Traversal (starting from vertex 0):\n";
+    DFS(V, adj);
+
+    return 0;
+}
