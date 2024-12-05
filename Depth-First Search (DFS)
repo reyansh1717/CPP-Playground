@@ -27,7 +27,6 @@ void DFS(int V, const vector<vector<int>>& adj) {
         }
     }
 }
-
 int main() {
     int V = 5; // Number of vertices
     vector<vector<int>> adj(V);
