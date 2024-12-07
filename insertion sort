@@ -1,6 +1,5 @@
 #include <iostream>
 #include <vector>
-
 // Function to perform insertion sort
 void insertionSort(std::vector<int>& arr) {
     int n = arr.size();
